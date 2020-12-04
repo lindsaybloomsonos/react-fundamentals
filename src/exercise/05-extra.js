@@ -6,31 +6,38 @@ import '../box-styles.css'
 
 const lightblueBoxStyles = {
   backgroundColor: 'lightblue',
-  fontStyle: 'italic',
 }
 const pinkBoxStyles = {
   backgroundColor: 'pink',
-  fontStyle: 'italic',
 }
 const orangeBoxStyles = {
   backgroundColor: 'orange',
-  fontStyle: 'italic',
+}
+
+function Box({className = '', style = {}, ...props}) {
+  return (
+    <div
+      className={`box ${className}`}
+      style={{fontStyle: 'italic', ...style}}
+      {...props}
+    />
+  )
 }
 
 const smallBox = (
-  <div className="box box--small" style={lightblueBoxStyles}>
+  <Box className="box--small" style={lightblueBoxStyles}>
     small lightblue box
-  </div>
+  </Box>
 )
 const mediumBox = (
-  <div className="box box--medium" style={pinkBoxStyles}>
+  <Box className="box--medium" style={pinkBoxStyles}>
     medium pink box
-  </div>
+  </Box>
 )
 const largeBox = (
-  <div className="box box--large" style={orangeBoxStyles}>
+  <Box className="box--large" style={orangeBoxStyles}>
     large orange box
-  </div>
+  </Box>
 )
 
 function App() {
